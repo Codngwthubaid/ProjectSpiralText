@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+html,
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    overflow: hidden;
+}
+
+.spiral {
+    display: flex;
+    align-items: center;
+    gap: 10%;
+    position: absolute;
+}
+
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes spirial {
+    0% {
+        --angle: 0deg;
+    }
+
+    100% {
+        --angle: 360deg;
+    }
+}
+
+.charater {
+    color: white;
+    font-size: 4em;
+    transform: translateY(calc(sin(var(--angle)) * 100px)) scale(calc(sin(var(--angle)) * 0.5 + 0.5));
+    animation: spiral 4s linear infinite;
+}
